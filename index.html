@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="app.css">
+    <title>Product Card</title>
+</head>
+<body>
+    <div class="container">
+        <div class="shadow"></div>
+        <img src="./img1.png" alt="" id="shoe">
+        <h1>NIKE SHOES</h1>
+        <div class="box">
+            <div id="size">
+                <h3>SIZE &nbsp:&nbsp </h3>
+                <div>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+            </div>
+            
+            <div id="color">
+                <h3>COLOR &nbsp:&nbsp </h3>
+                <div>
+                    <span class="active" onclick="change(1,this)"></span>
+                    <span onclick="change(2,this)"></span>
+                    <span onclick="change(3,this)"></span>
+                    <span onclick="change(4,this)"></span>
+                </div>
+            </div>
+            <a href="#">Buy</a>
+        </div>
+    </div>
+
+    <script src="./jquery.js"></script>
+    <script>
+        let color = ['#FF8A60','#3C5768','#FB253C','#997895']
+        function change(i,e){
+            document.documentElement.style.setProperty('--color',color[i-1]);
+            $('img#shoe').attr('src',`./img${i}.png`);
+            $('.container #color div span').removeClass('active');
+            e.classList.add('active');
+        }
+    </script>
+</body>
+</html>
